@@ -7,6 +7,8 @@ const { version } = JSON.parse(fs.readFileSync('package.json', 'utf8'));
 const gendiff = Command;
 gendiff
   .version(`${version}`)
-  .description('Compares two configuration files and shows a difference.');
+  .arguments('<filepath1> <filepath2>')
+  .description('Compares two configuration files and shows a difference.')
+  .option('-f, --format [type]', 'output format');
 
 gendiff.parse();
