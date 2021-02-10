@@ -18,5 +18,5 @@ $ gendiff -h or gendiff --help
 $ gendiff [path1] [path2]
 ```
 ### Asciinema
-#### brain even
+#### Get diff json
 [![asciicast](https://asciinema.org/a/uyj48nJzU2PVkJEWKl4QxUj46.svg)](https://asciinema.org/a/uyj48nJzU2PVkJEWKl4QxUj46)
