@@ -1,8 +1,7 @@
 # Generator difference
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/rootyss/frontend-project-lvl2/workflows/hexlet-check/badge.svg)](https://github.com/rootyss/frontend-project-lvl2/actions)
-[![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/rootyss/frontend-project-lvl2/)
-
+[![Maintainability](https://api.codeclimate.com/v1/badges/361d57809c1c1c9eb3e1/maintainability)](https://codeclimate.com/github/rootyss/frontend-project-lvl2/maintainability)
 ## Setup
 
 ```sh

@@ -7,4 +7,7 @@ lint:
 lintFix:
 	npx eslint . --fix
 test:
-	NODE_OPTIONS=--experimental-vm-modules npx jest
+	npx -n --experimental-vm-modules jest --watch
+test-win:
+	npx jest
+
