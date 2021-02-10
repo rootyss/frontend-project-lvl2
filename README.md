@@ -19,4 +19,4 @@ $ gendiff [path1] [path2]
 ```
 ### Asciinema
 #### Get diff json
-[![asciicast](https://asciinema.org/a/uyj48nJzU2PVkJEWKl4QxUj46.svg)](https://asciinema.org/a/uyj48nJzU2PVkJEWKl4QxUj46)
+[![asciicast](https://asciinema.org/a/iOrMj2eS2NIwLTzzQ1NejZ6ZV.svg)](https://asciinema.org/a/iOrMj2eS2NIwLTzzQ1NejZ6ZV)
