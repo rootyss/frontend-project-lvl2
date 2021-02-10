@@ -5,4 +5,4 @@ publish:
 lint:
 	npx eslint .
 lintFix:
-    npx eslint . --fix
+	npx eslint . --fix

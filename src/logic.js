@@ -8,36 +8,56 @@ const sortByKey = (obj) => {
   }, {});
 };
 
-const objToString = (obj) => {
-  const arrayEntries = [];
-  for (const [key, value] of Object.entries(obj)) {
-    arrayEntries.push(`${key}: ${value}`);
-  }
-  return arrayEntries.join('\n');
+const diffToString = (sortDiffDatas, data1, data2) => {
+  const entries = Object.entries(sortDiffDatas);
+  const diffAsString = entries.reduce((acc, elem) => {
+    const key = elem[0];
+    const value = elem[1];
+    if (value === true) {
+      acc.push(` ${key}: ${data1[key]}`);
+    }
+    if (value === 'added') {
+      acc.push(`+${key}: ${data2[key]}`);
+    }
+    if (value === 'deleted') {
+      acc.push(`-${key}: ${data1[key]}`);
+    }
+    if (value === 'changed') {
+      acc.push(`-${key}: ${data1[key]}`);
+      acc.push(`+${key}: ${data2[key]}`);
+    }
+    return acc;
+  }, []);
+  return diffAsString.join('\n');
 };
 
 const getDiff = (data1, data2) => {
-  const sortData1 = sortByKey(data1);
-  const sortData2 = sortByKey(data2);
-  const diff = {};
-  for (const [key, value] of Object.entries(sortData1)) {
-    if (_.has(sortData2, key) && sortData2[key] === value) {
-      diff[`  ${key}`] = value;
+  const diffDatas = {};
+  const entriesData1 = Object.entries(data1);
+  const entriesData2 = Object.entries(data2);
+
+  entriesData1.forEach((val) => {
+    const [key, value] = val;
+
+    if (_.has(data2, key) && data2[key] === value) {
+      diffDatas[key] = true;
     }
-    if (!_.has(sortData2, key)) {
-      diff[`- ${key}`] = value;
+    if (!_.has(data2, key)) {
+      diffDatas[key] = 'deleted';
     }
-    if (_.has(sortData2, key) && sortData2[key] !== value) {
-      diff[`- ${key}`] = value;
-      diff[`+ ${key}`] = sortData2[key];
+    if (_.has(data2, key) && data2[key] !== value) {
+      diffDatas[key] = 'changed';
     }
-  }
-  for (const [key, value] of Object.entries(sortData2)) {
-    if (!_.has(sortData1, key)) {
-      diff[`+ ${key}`] = value;
+  });
+  entriesData2.forEach((val) => {
+    const [key] = val;
+
+    if (!_.has(data1, key)) {
+      diffDatas[key] = 'added';
     }
-  }
-  return objToString(diff);
+  });
+  const sortDiffDatas = sortByKey(diffDatas);
+  return diffToString(sortDiffDatas, data1, data2);
 };
 
 export default getDiff;
