@@ -3,6 +3,7 @@
 [![Actions Status](https://github.com/rootyss/frontend-project-lvl2/workflows/hexlet-check/badge.svg)](https://github.com/rootyss/frontend-project-lvl2/actions)
 [![Maintainability](https://api.codeclimate.com/v1/badges/361d57809c1c1c9eb3e1/maintainability)](https://codeclimate.com/github/rootyss/frontend-project-lvl2/maintainability)
 [![NodeCI](https://github.com/rootyss/frontend-project-lvl2/workflows/NodeCI/badge.svg)](https://github.com/rootyss/frontend-project-lvl2/actions)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/361d57809c1c1c9eb3e1/test_coverage)](https://codeclimate.com/github/rootyss/frontend-project-lvl2/test_coverage)
 ## Setup
 
 ```sh
