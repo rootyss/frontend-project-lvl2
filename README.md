@@ -21,6 +21,6 @@ $ gendiff [path1] [path2]
 ```
 ### Asciinema
 #### Get diff json
-[![asciicast](https://asciinema.org/a/iOrMj2eS2NIwLTzzQ1NejZ6ZV.svg)](https://asciinema.org/a/iOrMj2eS2NIwLTzzQ1NejZ6ZV)
+[![asciicast](https://asciinema.org/a/Amoo8JS9Q0HgEsX6w8vLnWnA6.svg)](https://asciinema.org/a/Amoo8JS9Q0HgEsX6w8vLnWnA6)
 #### Get diff yml
 [![asciicast](https://asciinema.org/a/EQPn3o5ELsX5hEBRkFqKmzUJ1.svg)](https://asciinema.org/a/EQPn3o5ELsX5hEBRkFqKmzUJ1)

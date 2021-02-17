@@ -16,9 +16,9 @@ test('diffJson', () => {
   expect(genDiff(path1, path2)).toEqual(expected);
 });
 
-test('diffYml', () => {
+/* test('diffYml', () => {
   const path1 = getFixturePath('file1.yml');
   const path2 = getFixturePath('file2.yml');
   const expected = fs.readFileSync(getFixturePath('res-stylish.txt'), 'utf8');
   expect(genDiff(path1, path2)).toEqual(expected);
-});
+}); */
