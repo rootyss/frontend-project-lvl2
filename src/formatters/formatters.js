@@ -1,5 +1,6 @@
 import stylish from './stylish.js';
 import plain from './plain.js';
+
 const getRender = (format) => {
   switch (format) {
     case 'json':
