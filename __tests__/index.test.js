@@ -22,3 +22,17 @@ test('diffYml', () => {
   const expected = fs.readFileSync(getFixturePath('res-stylish.txt'), 'utf8');
   expect(genDiff(path1, path2)).toEqual(expected);
 });
+
+/*test('diffJson', () => {
+  const path1 = getFixturePath('file1.json');
+  const path2 = getFixturePath('file2.json');
+  const expected = fs.readFileSync(getFixturePath('res-plain.txt'), 'utf8');
+  expect(genDiff(path1, path2, 'plain')).toEqual(expected);
+});
+
+test('diffYml', () => {
+  const path1 = getFixturePath('file1.yml');
+  const path2 = getFixturePath('file2.yml');
+  const expected = fs.readFileSync(getFixturePath('res-plain.txt'), 'utf8');
+  expect(genDiff(path1, path2, 'plain')).toEqual(expected);
+});*/
