@@ -6,8 +6,10 @@ const getRender = (format) => {
       return 1;
     case 'plain':
       return 2;
-    default:
+    case 'stylish':
       return stylish;
+    default:
+      throw new Error(`Unknown format ${format}`);
   }
 };
 

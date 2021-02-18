@@ -13,7 +13,6 @@ gendiff
   .arguments('<filepath1> <filepath2>')
   .description(description)
   .option('-f, --format [type]', 'output format', 'stylish')
-  .option('-t, --engine [engine]', 'Add template [engine] support', 'jade')
   .action((filepath1, filepath2) => {
     console.log(genDiff(filepath1, filepath2, gendiff.opts().format));
   });
