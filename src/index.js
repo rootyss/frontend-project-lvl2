@@ -12,23 +12,23 @@ const genDiff = (filepath1, filepath2, format = 'stylish') => {
       .map((node) => {
         if (!_.has(data1, node)) {
           return {
-              name: node,
-              type: 'added',
-              value: data2[node]
+            name: node,
+            type: 'added',
+            value: data2[node],
           };
         }
         if (!_.has(data2, node)) {
           return {
-              name: node,
-              type: 'deleted',
-              value: data1[node]
+            name: node,
+            type: 'deleted',
+            value: data1[node],
           };
         }
         if (_.isObject(data1[node]) && _.isObject(data2[node])) {
           return {
-              name: node,
-              type: 'nested',
-              children: iter(data1[node], data2[node])
+            name: node,
+            type: 'nested',
+            children: iter(data1[node], data2[node]),
           };
         }
         if ((typeof data1[node] !== typeof data2[node])
@@ -41,9 +41,9 @@ const genDiff = (filepath1, filepath2, format = 'stylish') => {
           };
         }
         return {
-            name: node,
-            type: 'identical',
-            value: data1[node]
+          name: node,
+          type: 'identical',
+          value: data1[node],
         };
       });
   };
