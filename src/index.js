@@ -7,9 +7,8 @@ const genDiff = (filepath1, filepath2, format = 'stylish') => {
   const file2 = parsFile(filepath2);
 
   const iter = (data1, data2) => {
-    const unionKeys = _.union(_.keys(data1), _.keys(data2));
-    const unionKeysSorted = unionKeys.sort();
-    return unionKeysSorted
+    const unionKeys = [..._.union(_.keys(data1), _.keys(data2))].sort();
+    return unionKeys
       .map((node) => {
         if (!_.has(data1, node)) {
           return { name: node, type: 'added', value: data2[node] };
