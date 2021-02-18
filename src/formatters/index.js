@@ -1,10 +1,11 @@
 import stylish from './stylish.js';
 import plain from './plain.js';
+import json from './json.js';
 
 const getRender = (format) => {
   switch (format) {
     case 'json':
-      return 1;
+      return json;
     case 'plain':
       return plain;
     case 'stylish':
