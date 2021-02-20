@@ -3,10 +3,16 @@ import yaml from 'js-yaml';
 import path from 'path';
 import getPath from './getPath.js';
 
+const getFullPath = (filePath) => getPath(filePath);
+
+const getFileContent = (fullPath) => fs.readFileSync(fullPath, 'utf8');
+
+const getFileFormat = (filePath) => path.extname(filePath);
+
 const parsFile = (filePath) => {
-  const fullPath = getPath(filePath);
-  const fileContent = fs.readFileSync(fullPath, 'utf8');
-  const format = path.extname(filePath);
+  const fullPath = getFullPath(filePath);
+  const fileContent = getFileContent(fullPath);
+  const format = getFileFormat(filePath);
   if (format === 'json') {
     return JSON.parse(fileContent);
   }
