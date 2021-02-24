@@ -25,8 +25,7 @@ const getObjDifference = (data1, data2) => {
           children: getObjDifference(data1[node], data2[node]),
         };
       }
-      if ((!_.isEqual(data1[node], data2[node]))
-                || (data1[node] !== data2[node])) {
+      if (!_.isEqual(data1[node], data2[node])) {
         return {
           name: node,
           type: 'changed',
