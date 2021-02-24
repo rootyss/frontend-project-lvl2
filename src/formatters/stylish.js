@@ -39,7 +39,7 @@ const renderStylish = (diff) => {
         case 'nested':
           return toStringNested(elem, lvl, iter);
         default:
-          throw new Error('Unknown type');
+          throw new Error(`Unknown type: ${type}`);
       }
     });
     return result.join('\n');

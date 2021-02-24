@@ -12,7 +12,7 @@ const valueToString = (value) => {
 
 const renderPlain = (difference) => {
   const iter = (data, name = '') => {
-    const dataFiltered = data.filter((el) => !(el.type === 'identical'));
+    const dataFiltered = data.filter(({ type }) => type !== 'identical');
     const result = dataFiltered.map((elem) => {
       const names = `${name}${elem.name}`;
       const { type, value } = elem;

@@ -18,14 +18,14 @@ const getObjDifference = (data1, data2) => {
           value: data1[node],
         };
       }
-      if (_.isObject(data1[node]) && _.isObject(data2[node])) {
+      if (_.isPlainObject(data1[node]) && _.isPlainObject(data2[node])) {
         return {
           name: node,
           type: 'nested',
           children: getObjDifference(data1[node], data2[node]),
         };
       }
-      if ((typeof data1[node] !== typeof data2[node])
+      if ((!_.isEqual(data1[node], data2[node]))
                 || (data1[node] !== data2[node])) {
         return {
           name: node,
