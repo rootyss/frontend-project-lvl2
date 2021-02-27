@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import Command from 'commander';
 import { createRequire } from 'module';
-import genDiff from '../src/index.js';
+import genDiff from '../index.js';
 
 const require = createRequire(import.meta.url);
 const { version, description } = require('../package.json');

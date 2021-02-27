@@ -11,23 +11,25 @@ const valueToString = (value) => {
 };
 
 const renderPlain = (difference) => {
-  const iter = (data, name = '') => {
+  const iter = (data, name = []) => {
     const dataFiltered = data.filter(({ type }) => type !== 'identical');
     const result = dataFiltered.map((elem) => {
-      const names = `${name}${elem.name}`;
+      const names = [...name];
+      names.push(elem.name);
       const { type, value } = elem;
-      const { valueBefore, valueAfter } = elem;
       switch (type) {
         case 'added':
-          return `Property '${names}' was added with value: ${valueToString(value)}`;
+          return `Property '${names.join('.')}' was added with value: ${valueToString(value)}`;
         case 'deleted':
-          return `Property '${names}' was removed`;
-        case 'changed':
-          return `Property '${names}' was updated. From ${valueToString(valueBefore)} to ${valueToString(valueAfter)}`;
+          return `Property '${names.join('.')}' was removed`;
+        case 'changed': {
+          const { valueBefore, valueAfter } = elem;
+          return `Property '${names.join('.')}' was updated. From ${valueToString(valueBefore)} to ${valueToString(valueAfter)}`;
+        }
         case 'nested':
-          return iter(elem.children, `${names}.`);
+          return iter(elem.children, names);
         default:
-          throw new Error('Unknown node type');
+          throw new Error(`Unknown node type: ${type}`);
       }
     });
     return result.join('\n');

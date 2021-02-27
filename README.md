@@ -9,6 +9,7 @@
 ```sh
 $ git clone https://github.com/rootyss/frontend-project-lvl2
 $ make install (in cloned folder)
+$ make link
 ```
 for help:
 ```sh

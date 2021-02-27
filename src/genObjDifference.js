@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-const getObjDifference = (data1, data2) => {
+const genObjDifference = (data1, data2) => {
   const unionKeys = _.sortBy(_.union(_.keys(data1), _.keys(data2)));
   return unionKeys
     .map((node) => {
@@ -22,7 +22,7 @@ const getObjDifference = (data1, data2) => {
         return {
           name: node,
           type: 'nested',
-          children: getObjDifference(data1[node], data2[node]),
+          children: genObjDifference(data1[node], data2[node]),
         };
       }
       if (!_.isEqual(data1[node], data2[node])) {
@@ -41,4 +41,4 @@ const getObjDifference = (data1, data2) => {
     });
 };
 
-export default getObjDifference;
+export default genObjDifference;

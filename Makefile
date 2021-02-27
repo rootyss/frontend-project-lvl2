@@ -12,3 +12,5 @@ test-win:
 	npx jest
 test-coverage:
 	npm test -s -- --coverage
+link:
+	npm link

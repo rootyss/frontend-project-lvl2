@@ -2,23 +2,27 @@ import _ from 'lodash';
 
 const repeatIndent = (level) => ' '.repeat(level);
 
+const baseNumberIndent = 2;
+const objNumberIndent = 4;
+const keyNumberIndent = 8;
+
 const toString = (data, lvlIndent) => {
   if (!_.isObject(data)) {
     return data;
   }
-  const indentForObj = repeatIndent(lvlIndent + 4);
-  const indentForKey = repeatIndent(lvlIndent + 8);
-  const result = Object.entries(data).map(([key, value]) => `${indentForKey}${key}: ${toString(value, lvlIndent + 4)}`);
+  const indentForObj = repeatIndent(lvlIndent + objNumberIndent);
+  const indentForKey = repeatIndent(lvlIndent + keyNumberIndent);
+  const result = Object.entries(data).map(([key, value]) => `${indentForKey}${key}: ${toString(value, lvlIndent + objNumberIndent)}`);
   return `{\n${result.join('\n')}\n${indentForObj}}`;
 };
 const toStringNested = (elem, lvlIndent, f) => {
   const { name, children } = elem;
-  const indent = repeatIndent(lvlIndent + 4);
-  return `${indent}${name}: {\n${f(children, lvlIndent + 4)}\n${indent}}`;
+  const indent = repeatIndent(lvlIndent + objNumberIndent);
+  return `${indent}${name}: {\n${f(children, lvlIndent + objNumberIndent)}\n${indent}}`;
 };
 const toStringChanged = (elem, lvlIndent) => {
   const { name, valueBefore, valueAfter } = elem;
-  const indent = repeatIndent(lvlIndent + 2);
+  const indent = repeatIndent(lvlIndent + baseNumberIndent);
   return `${indent}- ${name}: ${toString(valueBefore, lvlIndent)}\n${indent}+ ${name}: ${toString(valueAfter, lvlIndent)}`;
 };
 

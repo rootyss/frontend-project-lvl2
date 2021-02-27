@@ -2,17 +2,17 @@ import stylish from './stylish.js';
 import plain from './plain.js';
 import json from './json.js';
 
-const getRender = (format) => {
+const formatting = (format, difference) => {
   switch (format) {
     case 'json':
-      return json;
+      return json(difference);
     case 'plain':
-      return plain;
+      return plain(difference);
     case 'stylish':
-      return stylish;
+      return stylish(difference);
     default:
       throw new Error(`Unknown format ${format}. Use json, plain or stylish (default)`);
   }
 };
 
-export default getRender;
+export default formatting;
