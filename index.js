@@ -1,5 +1,3 @@
-import main from './src/gendiff.js';
-
-const genDiff = main;
+import genDiff from './src/gendiff.js';
 
 export default genDiff;
