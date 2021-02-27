@@ -14,8 +14,7 @@ const renderPlain = (difference) => {
   const iter = (data, name = []) => {
     const dataFiltered = data.filter(({ type }) => type !== 'identical');
     const result = dataFiltered.map((elem) => {
-      const names = [...name];
-      names.push(elem.name);
+      const names = [...name, elem.name];
       const { type, value } = elem;
       switch (type) {
         case 'added':
